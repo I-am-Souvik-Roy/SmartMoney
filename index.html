@@ -1,0 +1,86 @@
+<html>
+<head>
+	<title>SmartMoney home page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="home.css">
+	<header>
+    <img class="logo" src="logo.png" alt="logo">
+    
+    <h1>Smart<span>Money</span></h1>
+    <nav>
+
+    	<ul class="nav_links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+    	</ul></nav>
+
+    	<button id="loginButton">Register</button>
+    
+    
+
+	
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="login-container">
+                <h2>Login</h2>
+                <form id="loginForm">
+                  <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                  </div>
+                  <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                  </div>
+                  <div class="input-group">
+                    <label for="role">Role:</label>
+                    <select id="role" name="role">
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+                  <button type="submit">Login</button>
+                </form>
+                <div id="errorMessage" class="error-message"></div>
+              </div>
+            </div>
+          </div>
+        
+          <script src="login.js"></script>
+        </body>
+    
+    </header>
+
+	<div class="container">
+    <div class="row">
+        <div class="col-1">
+    <img src="credit.jpg"></div>
+<div class="col-2">
+    
+      <h2>Save your Money with <button>Debit Lock</button></h2>
+      <h3>Earn Profit 24/7 with <a target='_blank' href="stips.html"><button>Smart Tips</button></a></h3>
+      <h4>Get Loan anytime anywhere at <a target='_blank' href="smartloan.html"><button>Smart Loan</button></a></h4>
+      <h5>Earn Interest by providing Loans at <a target='_blank' href="smartpartner.html"><button>Smart Partner</button></a></h5>
+      
+      
+     <a class="button" target="_blank" href="bank.html"><button>Start</button></a>
+    </div>
+    </div>
+    </div>
+
+<footer><p>copyrights reserved by SmartMoney</p>
+
+<img src="fb.png">
+<img src="ig.png">
+<img src="x.png">
+<img src="yt.png">
+
+
+</footer>
+</body>
+</html>
