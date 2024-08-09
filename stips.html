@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <title>Smart Tips</title>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="stips.css">
+
+    <header>
+        <img class="logo" src="logo.png" alt="logo">
+        
+        <h1>Smart<span>Money</span></h1>
+        <nav>
+    
+            <ul class="nav_links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            </ul></nav>
+    
+            <button onclick="document.getElementById('id01').style.display='block'">Register</button></a>
+	
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'"
+          class="close" title="Close Modal">&times;</span>
+          
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/action_page.php">
+              <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+              </div>
+          
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+          
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+          
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+          
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+
+          <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+
+        </header>
+
+        <div class="container-fluid">
+            <h1>Latest News</h1>
+            <div id="news-list"></div>
+        </div>
+    
+        <script>
+            // Replace 'YOUR_API_KEY' with your actual API key
+            const apiKey = 'bn26yGO1HJxH0rpOnPZBLnSdpuabAa65GPWORCGi';
+            const apiUrl = 'https://api.marketaux.com/v1/news/all HTTP/1.1'; // Replace with your API endpoint
+    
+            // Function to fetch news from the API
+            function fetchNews() {
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the fetched news data
+                        displayNews(data.articles);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching news:', error);
+                        // Handle error cases
+                    });
+            }
+    
+            // Function to display news on the webpage
+            function displayNews(articles) {
+                const newsList = document.getElementById('news-list');
+                // Clear any existing news content
+                newsList.innerHTML = '';
+                // Loop through the articles and create HTML elements for each article
+                articles.forEach(article => {
+                    const articleElem = document.createElement('div');
+                    articleElem.classList.add('article');
+                    articleElem.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p>${article.description}</p>
+                        <a href="${article.url}" target="_blank">Read more</a>
+                    `;
+                    newsList.appendChild(articleElem);
+                });
+            }
+    
+            // Call fetchNews function when the page loads
+            window.onload = fetchNews;
+        </script>
+  
+
+  <div class="card" style="width: 100px; height: 200px; margin-top: -200px; margin-left: 50px; background-color: #24252A; border-radius: 10px;">
+    <img src="adani.jpg" class="card-img-top" alt="..." style="margin-top: 450px; margin-left: 100px; border-radius: 20px;">
+    <div class="card-body" style="width: 400px; height: 200px; margin-top: 100px; margin-left: 50px; background-color: #24252A; border-radius: 10px;">
+      <h5 class="card-title" style="font-size: 20px; width: max-content; padding: 5px;"> Adani-35%/30</h5>
+      <p class="card-text" style="color: antiquewhite; padding: 4px;">Get 35% profit in 30 days Guarrented by buying 20 shares of Adani group of price: 3,072rs</p>
+      <a href="https://groww.in/stocks/adani-enterprises-ltd" target="_blank" class="btn btn-primary" style="color: aqua\;">Go somewhere</a>
+    </div>
+  </div>
+
+  <script src="stips.js"></script>
+</body>
+</html>

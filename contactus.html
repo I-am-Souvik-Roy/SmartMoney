@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <title>Smart Tips</title>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="contactus.css">
+
+    <header>
+        <img class="logo" src="logo.png" alt="logo">
+        
+        <h1>Smart<span>Money</span></h1>
+        <nav>
+    
+            <ul class="nav_links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+            </ul></nav>
+    
+            <button onclick="document.getElementById('id01').style.display='block'">Register</button></a>
+	
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'"
+          class="close" title="Close Modal">&times;</span>
+          
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/action_page.php">
+              <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+              </div>
+          
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+          
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+          
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+          
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+
+          <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+
+        </header>
+
+        
+        <div class="card" style="border-radius: 25px;">
+            <img src="dp3.jpeg" alt="Avatar" style="width:100%; border-radius: 25px; ">
+            <div class="container" style="border-radius: 25px; width: 300px;">
+              <h4><b>Souvik Roy</b></h4>
+              <h5>Engineering Student</h5>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+<ul>
+          <li><a href=""><button class="button1">Facebook</button></a></li>
+
+          <li><a href=""><button class="button2">Instagram</button></a></li>
+
+          <li><a href=""><button class="button3">Twitter</button></a></li>
+
+          <li><a href=""><button class="button4">Linkedin</button></a></li>
+</ul>
+          </div>
+        
+  
+
+  <script src="stips.js"></script>
+</body>
+</html>

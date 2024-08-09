@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Account Scanner</title>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="bank.css">
+
+    <header>
+        <img class="logo" src="logo.png" alt="logo">
+        
+        <h1>Smart<span>Money</span></h1>
+        <nav>
+    
+            <ul class="nav_links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+            </ul></nav>
+    
+            <button onclick="document.getElementById('id01').style.display='block'">Register</button></a>
+	
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'"
+          class="close" title="Close Modal">&times;</span>
+          
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/action_page.php">
+              <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+              </div>
+          
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+          
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+          
+                <button type="submit">Login</button>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+              </div>
+          
+              <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+
+          <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+
+        </header>
+
+        
+  <h2>Bank Account Scanner</h2>
+  <form id="bankAccountForm">
+    <label for="accountNumber">Enter your bank account number:</label><br>
+    <input type="text" id="accountNumber" name="accountNumber"><br>
+    <button type="submit" class="scan">Scan Account</button>
+  </form>
+
+  <div id="scannedData"></div>
+
+  <script>
+    document.getElementById('bankAccountForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const accountNumber = document.getElementById('accountNumber').value;
+
+      try {
+        const response = await fetch('/scan-account', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ accountNumber })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to scan account');
+        }
+
+        const scannedData = await response.json();
+        document.getElementById('scannedData').innerText = JSON.stringify(scannedData, null, 2);
+      } catch (error) {
+        console.error('Error scanning account:', error);
+        document.getElementById('scannedData').innerText = 'Error scanning account';
+      }
+    });
+  </script>
+</body>
+</html>
